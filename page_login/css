@@ -11,8 +11,8 @@ body {
 .logo {
     width: 300px;
     height: auto;
-    margin-bottom: -150px;
-    margin-top: -40px;;
+    margin-top: 95px;
+    margin-bottom: 45px;
 }
 
 .centered-div {
@@ -100,15 +100,15 @@ div.help-button:hover{
     color: white;
 }
   
-  .help-text {
+.help-text {
     margin: 0;
     font-weight: bold;
     font-family: "Helvetica", "Arial", sans-serif;
     font-size: 15px;
     text-align: center;
-  }
+}
 
-  .help-modal {
+.help-modal {
     display: none;
     position: fixed;
     top: 0;
@@ -143,7 +143,6 @@ div.help-button:hover{
     border: none;
 }
 
-/* Стили аккордеона */
 .faq-item {
     margin-bottom: 10px;
     border: 1px solid #ddd;
@@ -194,23 +193,9 @@ div.help-button:hover{
     border-top: 1px solid #eee;
 }
 
-/* Анимации */
 @keyframes modalFadeIn {
     from { opacity: 0; transform: translateY(-20px); }
     to { opacity: 1; transform: translateY(0); }
-}
-
-/* Адаптивность */
-@media (max-width: 600px) {
-    .help-modal-content {
-        width: 95%;
-        padding: 15px;
-    }
-    
-    .faq-question {
-        padding: 12px 15px;
-        font-size: 15px;
-    }
 }
 
 p.oftenque {
@@ -268,7 +253,7 @@ p.oftenque {
 }
 
 .login-btn:hover {
-    background: rgb(8, 3, 52);;
+    background: rgb(59, 59, 59);
 }
 
 .forgotpass {
