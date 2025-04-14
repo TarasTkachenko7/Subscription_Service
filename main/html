@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Главная</title>
+    <link rel="stylesheet" href="head.css">
+</head>
+<body>
+    <div class="container_of_up">
+        <a href="profile.html"><div class="profile">
+            <img src="images/profile.png" class="img_profile default">
+            <img src="images/profile_hover.png" class="img_profile hover">
+        </div></a>
+
+        <a href="menu.html"><div class="menu">
+            <img src="images/menu.png" class="img_menu default">
+            <img src="images/menu_hover.png" class="img_menu hover">
+        </div></a>
+    </div>
+
+    <div class="logo_container">
+        <img src="images/logo.png" class="logo">
+    </div>
+
+    <div class="slider-container">
+        <div class="slider">
+            <div class="slides-track">
+                <div class="card">
+                    <img src="images/kungfu.jpg" alt="Product 1">
+                    <h3>Кунг-фу Панда 4</h3>
+                    <p>Анимация, 2024</p>
+                    <button class="card-btn">Смотреть</button>
+                </div>
+                
+                <div class="card">
+                    <img src="images/vonka.jpeg" alt="Product 2">
+                    <h3>Вонка</h3>
+                    <p>Фэнтези, 2024</p>
+                    <button class="card-btn">Смотреть</button>
+                </div>
+                
+                <div class="card">
+                    <img src="images/chuzhoi.jpg" alt="Product 3">
+                    <h3>Чужой: Ромул</h3>
+                    <p>Ужасы, 2024</p>
+                    <button class="card-btn">Смотреть</button>
+                </div>
+                
+                <div class="card">
+                    <img src="images/dom.png" alt=Product 4">
+                    <h3>Дом у дороги</h3>
+                    <p>Боевик, 2024</p>
+                    <button class="card-btn">Смотреть</button>
+                </div>
+                
+                <div class="card">
+                    <img src="images/duna.jpg" alt="Product 5">
+                    <h3>Дюна 2</h3>
+                    <p>Фантастика, 2024</p>
+                    <button class="card-btn">Смотреть</button>
+                </div>
+                
+                <div class="card">
+                    <img src="images/joker.png" alt="Product 6">
+                    <h3>Джокер: Безумие на двоих</h3>
+                    <p>Драма, 2024</p>
+                    <button class="card-btn">Смотреть</button>
+                </div>
+                
+                <div class="card">
+                    <img src="images/gladiator.jpg" alt="Product 7">
+                    <h3>Гладиатор 2</h3>
+                    <p>История, 2024</p>
+                    <button class="card-btn">Смотреть</button>
+                </div>
+                
+                <div class="card">
+                    <img src="images/napoleon.jpg" alt="Product 8">
+                    <h3>Наполеон</h3>
+                    <p>История, 2024</p>
+                    <button class="card-btn">Смотреть</button>
+                </div>
+                
+                <div class="card">
+                    <img src="images/missia.jpg" alt="Product 9">
+                    <h3>Миссия невыполнима 8</h3>
+                    <p>Приключения, 2024</p>
+                    <button class="card-btn">Смотреть</button>
+                </div>
+                
+                <div class="card">
+                    <img src="images/artur.jpg" alt="Product 10">
+                    <h3>Артур, ты король</h3>
+                    <p>Драма, 2024</p>
+                    <button class="card-btn">Смотреть</button>
+                </div>
+
+                <div class="card">
+                    <img src="images/venom.jpg" alt="Product 11">
+                    <h3>Веном 3</h3>
+                    <p>Фантастика, 2024</p>
+                    <button class="card-btn">Смотреть</button>
+                </div>
+
+                <div class="card">
+                    <img src="images/sinister.jpg" alt="Product 12">
+                    <h3>Синистер 2</h3>
+                    <p>Ужасы, 2024</p>
+                    <button class="card-btn">Смотреть</button>
+                </div>
+
+                <div class="card">
+                    <img src="images/pretendent.png" alt="Product 13">
+                    <h3>Претенденты</h3>
+                    <p>Мелодрама, 2024</p>
+                    <button class="card-btn">Смотреть</button>
+                </div>
+
+                <div class="card">
+                    <img src="images/mstiteli.png" alt="Product 14">
+                    <h3>Мстители: Судный день</h3>
+                    <p>Супергеройский, 2025</p>
+                    <button class="card-btn">Смотреть</button>
+                </div>
+
+                <div class="card">
+                    <img src="images/sobiratel.jpg" alt="Product 15">
+                    <h3>Собиратель душ</h3>
+                    <p>Ужасы, 2024</p>
+                    <button class="card-btn">Смотреть</button>
+                </div>
+
+                <div class="card">
+                    <img src="images/anora.jpg" alt="Product 16">
+                    <h3>Анора</h3>
+                    <p>Драма, 2024</p>
+                    <button class="card-btn">Смотреть</button>
+                </div>
+
+                <div class="card">
+                    <img src="images/godzila.jpg" alt="Product 17">
+                    <h3>Годзилла и Конг 2</h3>
+                    <p>Фантастика, 2024</p>
+                    <button class="card-btn">Смотреть</button>
+                </div>
+
+                <div class="card">
+                    <img src="images/gadki.jpg" alt="Product 18">
+                    <h3>Гадкий я 4</h3>
+                    <p>Анимация, 2024</p>
+                    <button class="card-btn">Смотреть</button>
+                </div>
+
+                <div class="card">
+                    <img src="images/grom.jpg" alt="Product 19">
+                    <h3>Майор Гром: Игра</h3>
+                    <p>Боевик, 2024</p>
+                    <button class="card-btn">Смотреть</button>
+                </div>
+
+                <div class="card">
+                    <img src="images/max.jpg" alt="Product 20">
+                    <h3>Фуриоса: Безумный Макс</h3>
+                    <p>Фантастика, 2024</p>
+                    <button class="card-btn">Смотреть</button>
+                </div>
+            </div>
+        </div>
+        
+        <div class="slider-nav">
+            <button class="slider-btn prev" disabled>Предыдущий</button>
+            <button class="slider-btn next">Следующий</button>
+        </div>
+        
+
+    </div>
+
+    <div class="help-button">
+        <p class="help-text">Помощь</p>
+    </div>
+
+    <div class="help-modal">
+        <div class="help-modal-content">
+            <button class="help-close">&times;</button>
+            <p class="oftenque">Частые вопросы</p>
+            
+            <div class="faq-item">
+                <button class="faq-question">Как зарегистрироваться?</button>
+                <div class="faq-answer">
+                    <p class="description">Для входа или регистрации заполните необходимые поля в форме и нажмите "Зарегистрироваться".</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <button class="faq-question">Как восстановить пароль?</button>
+                <div class="faq-answer">
+                    <p class="description">На странице входа нажмите ссылку "Забыли пароль?". Введите email, указанный при регистрации. Вы получите письмо с инструкциями по сбросу пароля.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <button class="faq-question">Какие способы оплаты доступны?</button>
+                <div class="faq-answer">
+                    <p class="description">Мы принимаем следующие способы оплаты:</p>
+                    <ul>
+                        <li class="description">Банковские карты (Visa, Mastercard, Мир)</li>
+                        <li class="description">Электронные кошельки (Qiwi, WebMoney)</li>
+                        <li class="description">Мобильные платежи</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <button class="faq-question">Как связаться с поддержкой?</button>
+                <div class="faq-answer">
+                    <p class="description">Вы можете:</p>
+                    <ol>
+                        <li class="description">Написать на email: tarasy.tkachebko@yandex.ru</li>
+                        <li class="description">Позвонить по телефону: +7 (910) 822-12-52</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="head.js"></script>
+</body>
+</html>
