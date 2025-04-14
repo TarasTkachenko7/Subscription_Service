@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TEES</title>
+    <title>Авторизация</title>
     <link rel="stylesheet" href="my.css">
 </head>
 <body>
@@ -23,7 +23,7 @@
                 <input type="password" id="password" name="password" placeholder="Введите ваш пароль">
             </div>
             
-            <button class="login-btn">Войти</button>
+            <a href="head.html"><button class="login-btn">Войти</button></a>
             <p class="forgotpass">Забыли пароль?</p>
         </div>
     </div>
