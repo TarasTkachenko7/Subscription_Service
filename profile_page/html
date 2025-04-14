@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Профиль</title>
+    <link rel="stylesheet" href="profile.css">
+</head>
+<body>
+
+    <div class="logo_container">
+        <a href="head.html"><div class="back-container">
+            <img src="images/back.png" class="back-normal">
+            <img src="images/back_hover.png" class="back-hover">
+        </div></a>
+        <img src="images/logo.png" class="logo">
+    </div>
+
+    <div class="information">
+        <div class="icon">
+            <img src="images/profile_icon.png" class="profile_icon">
+        </div>
+        <div class="personal_information">
+            <p class="your_profile">Ваш профиль</p>
+            <p class="name">ник: <span class="subtext">Тарас</span></p>
+            <p class="name">дата регистрации: <span class="subtext">30.01.2025</span></p>
+            <p class="name">активная подписка: <span class="subtext">Премиум</span></p>
+            <p class="name">баланс кошелька: <span class="subtext">990</span></p>
+            <p class="name">дата следующего списания: <span class="subtext">10.05.2025</span></p>
+        </div>
+    </div>
+
+    <div class="history">
+        <p class="history_of">История транзакций</p>
+        <div class="transaction">
+            <div class="transaction-header">
+                <div class="header">Дата</div>
+                <div class="header">Стоимость</div>
+                <div class="header">Подписка</div>
+            </div>
+            
+            <div class="transaction-row">
+                <div class="date">30.04.2023</div>
+                <div class="amount">499</div>
+                <div class="subscription">Премиум</div>
+            </div>
+            
+            <div class="transaction-row">
+                <div class="date">30.03.2023</div>
+                <div class="amount">499</div>
+                <div class="subscription">Премиум</div>
+            </div>
+            
+            <div class="transaction-row">
+                <div class="date">30.02.2025</div>
+                <div class="amount">299</div>
+                <div class="subscription">Базовый</div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="profile.js"></script>
+</body>
+</html>
