@@ -9,9 +9,9 @@ body {
 }
 
 .logo {
-    width: 300px;
+    width: 200px;
     height: auto;
-    margin-top: 95px;
+    margin-top: 60px;
     margin-bottom: 45px;
 }
 
@@ -19,11 +19,10 @@ body {
     width: 500px;
     min-height: 500px;
     background: rgb(241, 241, 241);
-    border: 10px solid rgb(59, 59, 59);
+    border: 7px solid rgb(59, 59, 59);
     border-radius: 20px;
     display: flex;
     flex-direction: column;
-    padding: 20px;
     box-sizing: border-box;
     align-items: center;
 }
@@ -35,52 +34,25 @@ body {
     font-size: 30px;
 }
 
-div.help {
-    width: 100px;
-    height: 50px;
-    margin-top: 50px;
-    margin-left: 20px;
-    background: rgb(241, 241, 241);   
-    border: 2px solid rgb(59, 59, 59);
-    border-radius: 10px;
-}
-
-p.help {
-    text-align: center;
-    font-family: "Helvetica", "Arial", sans-serif;
-    font-weight: bold;
-}
-
 p.reg {
     text-align: center;
     font-family: "Helvetica", "Arial", sans-serif;
     font-size: 20px;
 }
 
-div.login {
-    background: rgb(255, 247, 98);
-    width: 400px;
-    height: 50px;
-    border-radius: 5px;
-    border: 2px solid rgb(255, 187, 0);
-    margin-top: 40px;
-}
-
-div.password {
-    background: rgb(255, 247, 98);
-    width: 400px;
-    height: 50px;
-    border-radius: 5px;
-    border: 2px solid rgb(255, 187, 0);
-    margin-top: 30px;
-}
-
-p.forgotpass {
+.forgotpass {
     margin-top: 20px;;
     text-align: center;
     font-family: "Helvetica", "Arial", sans-serif;
     font-size: 15px;
     color: rgb(215, 159, 6);
+    transition: all 0.3s ease;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.forgotpass:hover {
+    color: rgb(8, 3, 52);
 }
 
 .help-button {
@@ -95,7 +67,7 @@ p.forgotpass {
     transition: all 0.3s ease;
 }
 
-div.help-button:hover{
+.help-button:hover{
     background-color: rgb(215, 159, 6);
     color: white;
 }
@@ -127,7 +99,7 @@ div.help-button:hover{
     border-radius: 10px;
     width: 80%;
     max-width: 600px;
-    max-height: 80vh;
+    max-height: 80%;
     overflow-y: auto;
     position: relative;
     animation: modalFadeIn 0.3s;
@@ -239,8 +211,15 @@ p.oftenque {
     box-shadow: 0 0 0 2px rgba(30, 58, 138, 0.2);
 }
 
-.login-btn {
+.buttons {
     width: 100%;
+    display: flex;        
+    justify-content: center;
+    gap: 10px;  
+}
+
+.login-btn {
+    width: 200px;
     padding: 12px;
     background: rgb(215, 159, 6);
     color: white;
@@ -256,9 +235,72 @@ p.oftenque {
     background: rgb(59, 59, 59);
 }
 
-.forgotpass {
-    margin-top: 15px;
-    color: #1E3A8A;
+.comments {
+    width: 100%;
+    text-align: center;
+    bottom: 0;
+    position: fixed;
+}
+
+.comments_p {
+    font-size: 15px;
+    color: rgb(150, 150, 150);
+    font-family: "Helvetica", "Arial", sans-serif;
+}
+
+.alert {
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+    font-family: "Helvetica", "Arial", sans-serif;
+}
+
+.alert-error {
+    background-color: #ffebee;
+    color: #c62828;
+    border: 1px solid #ef9a9a;
+}
+
+.alert-success {
+    background-color: #e8f5e9;
+    color: #2e7d32;
+    border: 1px solid #a5d6a7;
+}
+
+.alert-info {
+    background-color: #e3f2fd;
+    color: #1565c0;
+    border: 1px solid #90caf9;
+}
+
+.forg input {
+    width: 50%;
+    padding: 5px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+    box-sizing: border-box;
+    font-family: "Helvetica", "Arial", sans-serif;
+}
+
+.forg input:focus {
+    border-color: #1E3A8A;
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(30, 58, 138, 0.2);
+}
+
+.forgot-btn {
+    width: 200px;
+    padding: 5px;
+    background: rgb(76, 182, 19);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
     cursor: pointer;
-    font-size: 14px;
+    transition: background 0.3s;
+}
+
+.forgot-btn:hover {
+    background: rgb(59, 59, 59);
 }
