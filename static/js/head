@@ -1,0 +1,188 @@
+// Показ окна с необходимой подпиской
+window.showSubscriptionModal = function(button) {
+    const modal = document.getElementById('subscriptionModal');
+    const requiredSub = button.getAttribute('data-subscription');
+    document.getElementById('requiredSub').textContent = requiredSub;
+    modal.style.display = 'flex';
+};
+
+// Перенаправление на подпсики
+window.redirectToSubscribe = function() {
+    const url = document.querySelector('[data-subscribe-url]').getAttribute('data-subscribe-url');
+    window.location.href = url;
+};
+
+document.addEventListener('DOMContentLoaded', function() {
+    const track = document.querySelector('.slides-track');
+    const cards = document.querySelectorAll('.card');
+    const prevBtn = document.querySelector('.prev');
+    const nextBtn = document.querySelector('.next');
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const helpButton = document.querySelector('.help-button');
+    const modal = document.querySelector('.help-modal');
+    const closeButton = document.querySelector('.help-close');
+    const questions = document.querySelectorAll('.faq-question');
+
+    // Переменные слайдера
+    let cardWidth = 0;
+    const visibleCards = 5;
+    let maxPosition = 0;
+    let currentPosition = 0;
+    let currentIndex = 0;
+    
+    // Обновление состояния слайдера
+    function updateSlider() {
+        track.style.transform = `translateX(-${currentPosition}px)`;
+        prevBtn.disabled = currentPosition === 0;
+        nextBtn.disabled = currentPosition >= maxPosition || maxPosition === 0;
+    }
+
+    // Инициализация слайдера
+    function initSlider() {
+        if (cards.length === 0) return;
+        
+        const firstVisibleCard = document.querySelector('.card[style="display: block;"]') || cards[0];
+        cardWidth = firstVisibleCard.offsetWidth + 20;
+        
+        const visibleCardsCount = document.querySelectorAll('.card[style="display: block;"]').length;
+        maxPosition = Math.max(0, (visibleCardsCount - visibleCards) * cardWidth);
+        
+        if (currentPosition > maxPosition) {
+            currentPosition = maxPosition;
+            currentIndex = Math.floor(currentPosition / cardWidth);
+        }
+        updateSlider();
+    }
+    
+    // Переход к следующему набору карточек
+    function next() {
+        if (currentPosition < maxPosition) {
+            currentIndex++;
+            currentPosition = currentIndex * cardWidth;
+            
+            if (currentPosition > maxPosition) {
+                currentPosition = maxPosition;
+                currentIndex = Math.floor(currentPosition / cardWidth);
+            }
+            updateSlider();
+        }
+    }
+    
+    // Переход к предыдущему набору карточек
+    function prev() {
+        if (currentPosition > 0) {
+            currentIndex--;
+            currentPosition = currentIndex * cardWidth;
+            updateSlider();
+        }
+    }
+    
+    // Фильтрация карточек по жанру
+    function filterMoviesByGenre(genre) {
+        let visibleCardsCount = 0;
+        
+        cards.forEach(card => {
+            const cardGenres = card.getAttribute('data-genres');
+            
+            if (genre === 'all' || cardGenres.includes(genre)) {
+                card.style.display = 'block';
+                visibleCardsCount++;
+            } else {
+                card.style.display = 'none';
+            }
+        });
+
+        filterButtons.forEach(btn => {
+            btn.classList.remove('active');
+            if (btn.getAttribute('data-genre') === genre) {
+                btn.classList.add('active');
+            }
+        });
+        initSlider();
+    }
+    
+    // Окно помощи
+    helpButton.addEventListener('click', function() {
+        modal.style.display = 'flex';
+    });
+
+    closeButton.addEventListener('click', function() {
+        modal.style.display = 'none';
+    });
+
+    modal.addEventListener('click', function(e) {
+        if (e.target === modal) {
+            modal.style.display = 'none';
+        }
+    });
+
+    questions.forEach(question => {
+        question.addEventListener('click', function() {
+            this.classList.toggle('active');
+            const answer = this.nextElementSibling;
+            answer.classList.toggle('show');
+
+            questions.forEach(q => {
+                if (q !== this && q.classList.contains('active')) {
+                    q.classList.remove('active');
+                    q.nextElementSibling.classList.remove('show');
+                }
+            });
+        });
+    });
+
+    // Установка рейтингов
+    function setupAgeRatings() {
+        document.querySelectorAll('.age-rating').forEach((el) => {
+            const text = el.textContent.trim();
+            el.classList.remove('age-p', 'age-u', 'age-b');
+            if (text === 'П') el.classList.add('age-p');
+            else if (text === 'У') el.classList.add('age-u');
+            else if (text === 'Б') el.classList.add('age-b');
+        });
+    }
+
+    // Обработка ресайза окна
+    function setupResizeHandler() {
+        let resizeTimer;
+        window.addEventListener('resize', function() {
+            clearTimeout(resizeTimer);
+            resizeTimer = setTimeout(function() {
+                initSlider();
+            }, 250);
+        });
+    }
+    
+    // Инициализация всех функций
+    function init() {
+        filterMoviesByGenre('all');
+        nextBtn.addEventListener('click', next);
+        prevBtn.addEventListener('click', prev);
+        
+        filterButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                const genre = this.getAttribute('data-genre');
+                filterMoviesByGenre(genre);
+            });
+        });
+        setupAgeRatings();
+        setupResizeHandler();
+    }
+    
+    // Закрытие модального окна
+    document.querySelector('.close').addEventListener('click', function() {
+        document.getElementById('subscriptionModal').style.display = 'none';
+    });
+    
+    // Закрытие при клике вне модального окна
+    window.addEventListener('click', function(event) {
+        const modal = document.getElementById('subscriptionModal');
+        if (event.target == modal) {
+            modal.style.display = 'none';
+        }
+    });
+    
+    // Запуск приложения
+    init();
+});
+
