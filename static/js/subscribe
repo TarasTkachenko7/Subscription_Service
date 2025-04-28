@@ -1,0 +1,90 @@
+document.addEventListener('DOMContentLoaded', function() {
+
+    // Функция изменения подписки
+    function changeSubscription(subscriptionName) {
+        fetch('/get_subscription_info?name=' + encodeURIComponent(subscriptionName))
+            .then(response => response.json())
+            .then(data => {
+                if (!data.success) {
+                    alert('Ошибка: ' + data.message);
+                    return;
+                }
+                
+                const currentSubElement = document.querySelector('.subscription-card.active');
+                if (currentSubElement && currentSubElement.dataset.subName === subscriptionName) {
+                    alert(`Подписка "${subscriptionName}" уже активна!`);
+                    return;
+                }
+
+                const modal = document.getElementById('paymentModal');
+                modal.querySelector('#subTitle').textContent = data.subscription.title;
+                modal.querySelector('#subPrice').textContent = data.subscription.price;
+                modal.style.display = 'block';
+                
+                // Удаляем старый обработчик, если он был
+                const confirmBtn = modal.querySelector('#confirmPayment');
+                confirmBtn.onclick = null;
+                
+                // Добавляем новый обработчик
+                confirmBtn.onclick = () => {
+                    fetch('/change_subscription', {
+                        method: 'POST',
+                        headers: {'Content-Type': 'application/json'},
+                        body: JSON.stringify({
+                            subscription: data.subscription.title,
+                            price: data.subscription.price
+                        })
+                    }).then(r => r.json()).then(res => {
+                        if (!res.success) {
+                            alert('Ошибка: ' + res.message);
+                            return;
+                        }
+                        alert('Подписка активирована!');
+                        modal.style.display = 'none';
+                        window.location.href = '/head';
+                    });
+                };
+            });
+    }
+
+    document.querySelector('.button_back').addEventListener('click', function() {
+        if (confirm('Вы уверены, что хотите отменить текущую подписку? Мы удержим комиссию 30% от стоимости подписки.')) {
+            fetch('/change_subscription', {
+                method: 'POST',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify({
+                    subscription: 'Базовая',
+                    price: 0,
+                    cancel: true  
+                })
+            }).then(r => r.json()).then(res => {
+                if (!res.success) {
+                    alert('Ошибка: ' + res.message);
+                    return;
+                }
+                alert('Подписка отменена! Средства возвращены на баланс.');
+                window.location.reload();
+            });
+        }
+    });
+
+    // Назначаем обработчики кнопкам подписки
+    const subscriptionButtons = document.querySelectorAll('.button');
+    subscriptionButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            changeSubscription(this.textContent.trim());
+        });
+    });
+
+    // Закрытие модального окна
+    document.querySelector('.close').addEventListener('click', function() {
+        document.getElementById('paymentModal').style.display = 'none';
+    });
+
+    // Закрытие при клике вне окна
+    window.addEventListener('click', function(e) {
+        if (e.target == document.getElementById('paymentModal')) {
+            document.getElementById('paymentModal').style.display = 'none';
+        }
+    });
+});
